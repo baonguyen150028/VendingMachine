@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7FA6AB3A1DA28480005327ED /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6AB391DA28480005327ED /* VendingMachine.swift */; };
+		7FF83CAB1DA67A96008A2A63 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF83CAA1DA67A96008A2A63 /* DepositViewController.swift */; };
 		97EC979F1C4E80860081754A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC979E1C4E80860081754A /* AppDelegate.swift */; };
 		97EC97A11C4E80860081754A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC97A01C4E80860081754A /* ViewController.swift */; };
 		97EC97A41C4E80860081754A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97EC97A21C4E80860081754A /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		7FA6AB391DA28480005327ED /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		7FF83CAA1DA67A96008A2A63 /* DepositViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		97EC979B1C4E80860081754A /* VendingMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EC979E1C4E80860081754A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97EC97A01C4E80860081754A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				97EC97A71C4E80860081754A /* LaunchScreen.storyboard */,
 				97EC97AA1C4E80860081754A /* Info.plist */,
 				97EC97B21C4E9CA90081754A /* VendingInventory.plist */,
+				7FF83CAA1DA67A96008A2A63 /* DepositViewController.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -101,10 +104,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = Treehouse;
+				ORGANIZATIONNAME = thebao;
 				TargetAttributes = {
 					97EC979A1C4E80860081754A = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 3M8X2S8ZFX;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -150,6 +154,7 @@
 				97EC979F1C4E80860081754A /* AppDelegate.swift in Sources */,
 				97EC97B11C4E8C7F0081754A /* VendingItemCell.swift in Sources */,
 				7FA6AB3A1DA28480005327ED /* VendingMachine.swift in Sources */,
+				7FF83CAB1DA67A96008A2A63 /* DepositViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +218,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -253,7 +258,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -265,9 +270,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3M8X2S8ZFX;
 				INFOPLIST_FILE = VendingMachine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.VendingMachine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thebao.VendingMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -277,9 +283,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3M8X2S8ZFX;
 				INFOPLIST_FILE = VendingMachine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.VendingMachine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thebao.VendingMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

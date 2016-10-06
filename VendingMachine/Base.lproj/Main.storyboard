@@ -41,6 +41,10 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="tintColor" red="0.96862745100000003" green="0.80000000000000004" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Add $5"/>
+                                                <connections>
+                                                    <action selector="depositFunds" destination="BYZ-38-t0r" eventType="touchUpInside" id="FEV-6E-7Ji"/>
+                                                    <segue destination="ucY-28-UlA" kind="presentation" id="PAV-Td-H58"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -168,6 +172,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1020" y="657"/>
+        </scene>
+        <!--Deposit View Controller-->
+        <scene sceneID="6kh-Jd-fAg">
+            <objects>
+                <viewController id="ucY-28-UlA" customClass="DepositViewController" customModule="VendingMachine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qJA-lF-lbf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wvq-su-2sO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pjF-Ra-KTs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWd-Ks-8e9">
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="Te3-vB-upM"/>
+                                    <constraint firstAttribute="height" constant="56" id="dlG-C3-nG5"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismiss" destination="ucY-28-UlA" eventType="touchUpInside" id="PC4-WI-9rE"/>
+                                    <action selector="purchase" destination="BYZ-38-t0r" eventType="touchUpInside" id="HKt-bu-p98"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Funds succesfully added" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsq-FD-1CI">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99610227346420288" green="0.99589234590530396" blue="0.99216681718826294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.090196078431372548" green="0.10588235294117647" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xsq-FD-1CI" firstAttribute="centerY" secondItem="pjF-Ra-KTs" secondAttribute="centerY" id="2dm-pH-ZT3"/>
+                            <constraint firstAttribute="trailing" secondItem="WWd-Ks-8e9" secondAttribute="trailing" id="4HT-Q7-8Sr"/>
+                            <constraint firstItem="WWd-Ks-8e9" firstAttribute="leading" secondItem="pjF-Ra-KTs" secondAttribute="leading" id="RlO-mM-SYv"/>
+                            <constraint firstItem="Wvq-su-2sO" firstAttribute="top" secondItem="WWd-Ks-8e9" secondAttribute="bottom" id="aug-Ox-TJT"/>
+                            <constraint firstItem="Xsq-FD-1CI" firstAttribute="centerX" secondItem="pjF-Ra-KTs" secondAttribute="centerX" id="gWN-8Y-dxu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gK3-PA-GxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1763" y="656"/>
         </scene>
     </scenes>
     <resources>

@@ -2,8 +2,8 @@
 //  VendingMachine.swift
 //  VendingMachine
 //
-//  Created by The Bao on 10/3/16.
-//  Copyright © 2016 Treehouse. All rights reserved.
+//  Created by The Bao on 10/06/16.
+//  Copyright © 2016 TheBao. All rights reserved.
 //
 
 import Foundation
@@ -146,7 +146,7 @@ class VendingMachine: VendingMachineType {
 
 
     func deposit(amount: Double) {
-
+        amountDeposited += amount 
     }
 
 

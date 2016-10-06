@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  VendingMachine
 //
-//  Created by Pasan Premaratne on 1/19/16.
-//  Copyright © 2016 Treehouse. All rights reserved.
+//  Created by TheBao on 10/06/16.
+//  Copyright © 2016 TheBao. All rights reserved.
 //
 
 import UIKit
@@ -27,9 +27,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let dictionary = try plistConveter.dictionaryFromFile(resource: "VendingInventory", ofType: "plist")
             let inventory = try InventoryUnarchiver.vendingInventoryFromDictionary(dictionary: dictionary)
             self.vendingMachine = VendingMachine(inventory: inventory)
-        } catch let error{
+        } catch let error {
             fatalError("\(error)")
-
         }
         super.init(coder: aDecoder)
     }
@@ -40,14 +39,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         setupCollectionViewCells()
         print(vendingMachine.inventory)
 
-        balanceLabel.text = "$\(vendingMachine.amountDeposited)"
+       setupViews()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func setupViews(){
+        updateQuantityLabel()
+        updateBalanceLabel()
+    }
     // MARK: - UICollectionView 
 
     func setupCollectionViewCells() {
@@ -77,14 +79,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         updateCellBackgroundColor(indexPath, selected: true)
+        reset()
 
         currentSelection = vendingMachine.selection[indexPath.row]
-     
-        if let currentSelection = currentSelection, let item = vendingMachine.itemForCurrent(selection: currentSelection){
-
-            totalLabel.text = "$\(item.price)"
-        }
-
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -114,8 +111,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 try vendingMachine.vend(selection: currentSelection, quantity: quantity)
                 balanceLabel.text = "$\(vendingMachine.amountDeposited)"
 
-            } catch {
-                // FIXME: Error Handling Code!!!
+            } catch VendingMachineError.OutOfStock {
+                showAlert(title: "Out Of Stock")
+            } catch VendingMachineError.InvalidSelection {
+                showAlert(title: "Invalid Selection!")
+            } catch VendingMachineError.InsufficientFunds(required: let amount){
+                showAlert(title: "Insufficient Funds", message: "Additional $\(amount) need to complete the transaction.")
+            } catch let error {
+                fatalError("\(error)")
             }
         } else {
 
@@ -126,8 +129,45 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     @IBAction func updateQuantity(_ sender: UIStepper) {
 
-        
+        quantity = sender.value
+        updateTotalPriceLabel()
+        updateQuantityLabel()
     }
 
+    func updateTotalPriceLabel(){
+
+        if let currentSelection = currentSelection, let item = vendingMachine.itemForCurrent(selection: currentSelection){
+
+            totalLabel.text = "$\(item.price * quantity)"
+        }
+    }
+    func updateQuantityLabel(){
+        quantityLabel.text = "\(quantity)"
+    }
+    func updateBalanceLabel(){
+        balanceLabel.text = "$\(vendingMachine.amountDeposited)"
+    }
+    func reset(){
+        quantity = 1
+        updateTotalPriceLabel()
+        updateQuantityLabel()
+    }
+
+    func showAlert(title: String, message: String? = nil, style: UIAlertControllerStyle = .alert){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+            self.reset()
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+
+    }
+
+    @IBAction func depositFunds() {
+
+        vendingMachine.deposit(amount: 5.0)
+        updateBalanceLabel()
+    }
 }
 

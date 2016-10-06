@@ -2,8 +2,8 @@
 //  VendingItemCell.swift
 //  VendingMachine
 //
-//  Created by Pasan Premaratne on 1/19/16.
-//  Copyright © 2016 Treehouse. All rights reserved.
+//  Created by TheBao on 10/06/16.
+//  Copyright © 2016 TheBao. All rights reserved.
 //
 
 import UIKit
